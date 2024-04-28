@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 20:21:35 by srudman           #+#    #+#             */
-/*   Updated: 2024/04/27 21:42:51 by srudman          ###   ########.fr       */
+/*   Updated: 2024/04/28 18:00:39 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,22 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdbool.h> // can we use this, Filipe?
 # include <fcntl.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <stdio.h>
 # include <errno.h>
-# include <string.h> // needed?
+# include <string.h> // needed for strerror
 # include <sys/types.h> // needed?
-# include <dirent.h> // neeed?
+# include <dirent.h> // neeed for pwd
 # include <sys/wait.h>
+# include <signal.h>
+# include <sys/stat.h>
+# include <dirent.h>
+# include <sys/ioctl.h> // needed for ioctl
+# include <termios.h>
+# include <curses.h>
+# include <term.h>
 # include "../libft/libft.h"
 # include "parser.h"
 # include "utils.h"
