@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:38:29 by srudman           #+#    #+#             */
-/*   Updated: 2024/04/27 21:38:50 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/03 14:37:09 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_table
 	int		errfile; // Default value = 2, but can be redirected to some other infile
 	bool	infile_valid; // not needed?
 	bool	outfile_valid; // not needed?
+	int		pipes; // default 0
 }	t_table;
 
 /* A part of the final command table where all the command details are stored*/
