@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:12:15 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 16:30:37 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/03 16:35:32 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ init() initialises the struct t_table data to it's default values.
 We also need to keep minishell "alive" so we implement
 minishell loop using while (1). */
 
-int	main(int argc, char **argv, char **env)
+int	main(int argc, char **argv, char **envp)
 {
 	t_table data;
 	
