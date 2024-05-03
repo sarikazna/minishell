@@ -6,7 +6,7 @@
 #    By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/03 18:17:06 by filipemfbgo      ###   ########.fr        #
+#    Updated: 2024/05/03 18:34:04 by filipemfbgo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(NAME): $(LIBFT) $(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) $(FT_INCLUDE) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "Compiling ${notdir $<}	in	$(SRC_DIR)"
@@ -47,6 +48,27 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(OBJ_DIR)/%.o: $(PATHU)/%.c
 	@echo "Compiling ${notdir $<}	in	$(PATHU)"
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+# $(OBJ_DIR)/%.o: $(PATHB)/%.c
+# 	@echo "Compiling ${notdir $<}	in	$(PATHB)"
+# 	@$(CC) $(CFLAGS) -c $< -o $@
+
+# $(OBJ_DIR)/%.o: $(PATHER)/%.c
+# 	@echo "Compiling ${notdir $<}	in	$(PATHER)"
+# 	@$(CC) $(CFLAGS) -c $< -o $@
+
+# $(OBJ_DIR)/%.o: $(PATHEX)/%.c
+# 	@echo "Compiling ${notdir $<}	in	$(PATHEX)"
+# 	@$(CC) $(CFLAGS) -c $< -o $@
+
+# $(OBJ_DIR)/%.o: $(PATHL)/%.cs
+# 	@echo "Compiling ${notdir $<}	in	$(PATHL)"
+# 	@$(CC) $(CFLAGS) -c $< -o $@
+
+# $(OBJ_DIR)/%.o: $(PATHP)/%.c
+# 	@echo "Compiling ${notdir $<}	in	$(PATHP)"
+# 	@$(CC) $(CFLAGS) -c $< -o $@
+
 
 $(LIBFT):
 	@$(MAKE) -C ./libft
