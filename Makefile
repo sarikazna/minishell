@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: srudman <srudman@student.42.fr>            +#+  +:+       +#+         #
+#    By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/03 17:54:15 by srudman          ###   ########.fr        #
+#    Updated: 2024/05/03 18:17:06 by filipemfbgo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,15 @@ PATHL		= src/lexer/
 PATHP		= src/parser/
 PATHU		= src/utils/
 
-SRCS 	=  src/main.c
+SRCS 	=  src/main.c \
+		   src/utils/checker.c \
+		   src/utils/struct_init.c
 
 OBJ		=	$(addprefix $(OBJ_DIR)/, $(notdir $(patsubst %.c, %.o, $(SRCS))))
 
 LIBFT = libft/libft.a
 
-all: $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
