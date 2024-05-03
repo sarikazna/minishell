@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 20:21:35 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 18:02:31 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/03 18:28:23 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,5 @@
 # include "builtins.h"
 # include "executor.h"
 
-// typedef enum file_descrip
-// {
-// 	STDIN_FILENO = 0,
-//     STDOUT_FILENO = 1,
-//     STDERR_FILENO = 2
-// };
 
 #endif
