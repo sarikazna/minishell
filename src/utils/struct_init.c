@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 17:53:32 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/03 18:24:10 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,31 @@ void	init_data(t_table *data)
 		free(data);
 		// put error that memory failed
 	}
-	infile = STDIN_FILENO;
-	outfile = STDOUT_FILENO;
-	errfile = STDERR_FILENO;
-	infile_valid = true;
-	otufile_valid = true;
-	pipes = 0;
-	env = NULL;
-	env_exists = true;
-	heredoc = NULL;
-	prompt = NULL;
+	data->infile = STDIN_FILENO;
+	data->outfile = STDOUT_FILENO;
+	data->errfile = STDERR_FILENO;
+	data->infile_valid = true;
+	data->outfile_valid = true;
+	data->pipes = 0;
+	data->env = NULL;
+	data->env_exists = true;
+	data->heredoc = NULL;
+	data->prompt = NULL;
 	init_cmd(data);
 }
 
 void init_cmd(t_table *data)
 {
-	data.cmd = malloc(sizeof(t_cmd));
-	if (!data.cmd)
+	data->cmd = malloc(sizeof(t_cmd));
+	if (!data->cmd)
 	{
-		free(data.cmd);
+		free(data->cmd);
 	}
-	data.cmd.prev = NULL;
-	data.cmd.next = NULL;
-	data.cmd.builtin = false;
-	data.cmd.path = NULL;
-	data.cmd.cmd_arg = NULL;
-	data.cmd.args = NULL;
-	data.cmd.skip_cmd = false;
+	data->cmd->prev = NULL;
+	data->cmd->next = NULL;
+	data->cmd->builtin = false;
+	data->cmd->path = NULL;
+	data->cmd->cmd_arg = NULL;
+	data->cmd->args = NULL;
+	data->cmd->skip_cmd = false;
 }
