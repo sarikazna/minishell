@@ -6,13 +6,13 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 17:41:10 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/03 17:53:32 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-void    init_data(t_table *data)
+void	init_data(t_table *data)
 {
 	data = malloc(sizeof(t_table));
 	if (!data)

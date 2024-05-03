@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:12:15 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 17:34:52 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/03 17:53:19 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(int argc, char **argv, char **envp)
 	init_data(&data);
     while (1) // minisehll loop
     {
+		
     }
 }
