@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:38:29 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 18:01:01 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/05 15:56:47 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_table
 	bool	outfile_valid; // not needed? true
 	int		pipes; // default 0
 	char	**env; // enivronemtn needed for excve(___, ____, **env);
+	char	*username; //Username 
 	bool	env_exists; // yes/ no, default yes
 	char	*heredoc; // int or char?
 	char	*prompt;
