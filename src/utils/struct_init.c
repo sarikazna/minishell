@@ -6,11 +6,13 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 18:24:10 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/06 14:49:45 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
+
+// init t_shell is needed instead of t_table
 
 void	init_data(t_table *data)
 {
