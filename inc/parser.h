@@ -6,7 +6,7 @@
 /*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:38:29 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/06 14:46:25 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/06 15:06:46 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef struct s_shell
 {
 	char	**env; // enivronemtn needed for excve(___, ____, **env);
 	bool	env_exists; // yes/ no, default yes
-	char	*username; //Username 
 	char	*prompt;
 	char	*directory;
 	t_table *table;

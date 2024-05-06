@@ -6,7 +6,7 @@
 /*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:21:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/06 14:48:33 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/06 15:09:59 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@ void	prompt(t_shell *shell)
 	char	*half;
 	char	*final;
 	char	*user;
+	char 	*directory;
 
 	if (shell->prompt != NULL)
 		free(shell->prompt);
-	directory = get_curr_dir(shell);
-	user = ft_strjoin_modified("->", shell->username);
-	half = ft_strjoin_modified(username, directory);
-	full = ft_strjoin_modified(half, ":");
-	free(directory);
-	free(username);
+	dir = shell->directory;
+	user = ft_strjoin(, "@"); //1st username + @
+	half = ft_strjoin_modified(username, dir); //username@ + logname
+	full = ft_strjoin(half, ":"); //username@logname + :~
+	//username@logname:~ + path
+	free(dir);
 	free(half);
-	shell->prompt = "full";
+	shell->prompt = "on";
 }
 
 /*Aditional function to help find the current directory*/
 
-char	*get_curr_dir(t_table *shell)
+char	*get_curr_dir(t_shell *shell)
 {
 	int		i;
 	char	*directory;
 	//pwd
-	char 	**split;
 
 	i = 0;
 	// pwd = function to get PWD from env
