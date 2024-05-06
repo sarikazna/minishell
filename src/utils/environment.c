@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:09:23 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/06 18:23:21 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/06 18:43:58 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	copy_env(t_shell *shell, char **envp)
 	}
 }
 
+/* SARA LEFT OFF HERE. Add the function to main. */
 void	env_handling(t_shell *shell, char **envp)
 {
 	int	i;

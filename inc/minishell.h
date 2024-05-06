@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 20:21:35 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 18:28:23 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/06 19:07:16 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,14 @@
 # include "builtins.h"
 # include "executor.h"
 
+typedef struct s_shell
+{
+	char	*env[100]; // enivronemtn needed for excve(___, ____, **env);
+	bool	env_exists; // yes/ no, default yes
+	char	*prompt;
+	char	*directory;
+    char	*heredoc; // int or char?
+	t_table *table;
+}   t_shell
 
 #endif

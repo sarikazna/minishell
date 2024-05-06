@@ -6,47 +6,59 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/06 14:49:45 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/06 19:11:06 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
 
-// init t_shell is needed instead of t_table
-
-void	init_data(t_table *data)
+void init_cmd(t_table *table)
 {
-	data = malloc(sizeof(t_table));
-	if (!data)
+	table->cmd = malloc(sizeof(t_cmd));
+	if (!table->cmd)
 	{
-		free(data);
+		free(table->cmd);
 		// put error that memory failed
 	}
-	data->infile = STDIN_FILENO;
-	data->outfile = STDOUT_FILENO;
-	data->errfile = STDERR_FILENO;
-	data->infile_valid = true;
-	data->outfile_valid = true;
-	data->pipes = 0;
-	data->env = NULL;
-	data->env_exists = true;
-	data->heredoc = NULL;
-	data->prompt = NULL;
-	init_cmd(data);
+	table->cmd->prev = NULL;
+	table->cmd->next = NULL;
+	table->cmd->builtin = false;
+	table->cmd->path = NULL;
+	table->cmd->cmd_arg = NULL;
+	table->cmd->args = NULL;
+	table->cmd->skip_cmd = false;
 }
 
-void init_cmd(t_table *data)
+void	init_table(t_table *table)
 {
-	data->cmd = malloc(sizeof(t_cmd));
-	if (!data->cmd)
+	table = malloc(sizeof(t_table));
+	if (!table)
 	{
-		free(data->cmd);
+		free(table);
+		// put error that memory failed
 	}
-	data->cmd->prev = NULL;
-	data->cmd->next = NULL;
-	data->cmd->builtin = false;
-	data->cmd->path = NULL;
-	data->cmd->cmd_arg = NULL;
-	data->cmd->args = NULL;
-	data->cmd->skip_cmd = false;
+	table->infile = STDIN_FILENO;
+	table->outfile = STDOUT_FILENO;
+	table->errfile = STDERR_FILENO;
+	table->infile_valid = true;
+	table->outfile_valid = true;
+	table->pipes = 0;
+	table->prompt = NULL;
+	init_cmd(table);
+}
+
+void init_shell(t_shell *shell)
+{
+	shell = malloc(sizeof(t_shell));
+	if (!shell)
+	{
+		free(shell);
+		// put error that memory failed
+	}
+	shell->env = NULL;
+	shell->env_exists = true;
+	shell->prompt = NULL;
+	shell->directory = NULL;
+	shell->heredoc = NULL;
+	init_table(shell->table);
 }
