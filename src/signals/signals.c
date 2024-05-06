@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:10:29 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/05 16:44:55 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/05/06 14:49:48 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	signals(void)
 {
-	g_ctrl_c = FALSE;
 	signal_ctrl_backslash();
 	signal_ctrl_c();
 }
