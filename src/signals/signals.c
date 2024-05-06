@@ -6,7 +6,7 @@
 /*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:10:29 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/06 14:49:48 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/06 18:04:46 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	signals(void)
 {
-	signal_ctrl_backslash();
+	signal_ctrl_slash();
 	signal_ctrl_c();
 }
 
@@ -35,7 +35,6 @@ void	handle_sigint(int sig_num)
 {
 	if (sig_num == SIGINT)
 	{
-		g_ctrl_c = TRUE;
 		write(1, "\n", 2);
 		rl_on_new_line(); //Moves the input prompt to a new line
 		rl_replace_line("", 0); //Clears the first line of the input prompt. 0 is the number of characters to replace so it means the entire line will be replaced

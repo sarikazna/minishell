@@ -6,7 +6,7 @@
 #    By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/03 18:34:04 by filipemfbgo      ###   ########.fr        #
+#    Updated: 2024/05/06 16:31:08 by filipemfbgo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ PATHU		= src/utils/
 
 SRCS 	=  src/main.c \
 		   src/utils/checker.c \
-		   src/utils/struct_init.c
+		   src/utils/struct_init.c \
+		   src/utils/
 
 OBJ		=	$(addprefix $(OBJ_DIR)/, $(notdir $(patsubst %.c, %.o, $(SRCS))))
 
