@@ -6,10 +6,11 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:12:15 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/06 19:11:22 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 14:09:52 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/utils.h"
 #include "../inc/minishell.h"
 
 /* The program ./minishell does not accept any arguments to that is reviewed 

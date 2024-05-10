@@ -6,10 +6,11 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:59 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/03 17:41:01 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 14:10:50 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
 /* Checking if the person ran ./minishell without mistakes (e.g. extra

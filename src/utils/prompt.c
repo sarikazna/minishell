@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:21:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/06 18:02:42 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/10 14:27:22 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,6 @@ char	*get_curr_dir(t_shell *shell)
 	i = 0;
 	pwd = get_env_var(shell, "PWD=");
 	
-}
-
-char	*get_env_var(t_shell *shell, char *var)
-{
-	int		i;
-	char	*env_var;
-
-	i = 0;
-	while (shell->env[i] != NULL)
-	{
-		if (ft_strncmp(var, shell->env[i], ft_strlen(var)) == 0)
-		{
-			env_var = ft_strdup(shell->env[i]);
-			return (env_var);
-		}
-		i++;
-	}
-	return (NULL);
 }
 
 /*int main() {

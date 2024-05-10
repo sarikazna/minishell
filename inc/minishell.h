@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 20:21:35 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/06 19:07:16 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 14:03:37 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_shell
 	char	*directory;
     char	*heredoc; // int or char?
 	t_table *table;
-}   t_shell
+}   t_shell;
+
 
 #endif

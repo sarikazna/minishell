@@ -6,10 +6,11 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/06 19:11:06 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 14:18:53 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
 void init_cmd(t_table *table)
@@ -43,19 +44,25 @@ void	init_table(t_table *table)
 	table->infile_valid = true;
 	table->outfile_valid = true;
 	table->pipes = 0;
-	table->prompt = NULL;
 	init_cmd(table);
 }
 
-void init_shell(t_shell *shell)
+void	init_shell(t_shell *shell)
 {
+	int	i;
+	
 	shell = malloc(sizeof(t_shell));
 	if (!shell)
 	{
 		free(shell);
 		// put error that memory failed
 	}
-	shell->env = NULL;
+	i = 0;
+	while (i < 100)
+	{
+		shell->env[i] = NULL;
+		i++;
+	}
 	shell->env_exists = true;
 	shell->prompt = NULL;
 	shell->directory = NULL;

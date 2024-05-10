@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+         #
+#    By: srudman <srudman@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/06 16:31:08 by filipemfbgo      ###   ########.fr        #
+#    Updated: 2024/05/10 14:05:21 by srudman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ PATHU		= src/utils/
 SRCS 	=  src/main.c \
 		   src/utils/checker.c \
 		   src/utils/struct_init.c \
-		   src/utils/
+		   src/utils/environment.c
 
 OBJ		=	$(addprefix $(OBJ_DIR)/, $(notdir $(patsubst %.c, %.o, $(SRCS))))
 
