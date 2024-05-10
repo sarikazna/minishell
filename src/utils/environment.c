@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:09:23 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 17:51:41 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/10 18:52:59 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
+// SARA TO DO: seg fault when env -i ./minishell
 int	ft_last_array(char **array)
 {
 	int	i;
@@ -80,13 +81,15 @@ void	env_handling(t_shell *shell, char **envp)
 	(void)i;
 	if (envp != NULL)
 	{
+		printf("Env copy: %s\n", envp[i]);
+		// left off here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		shell->env_exists = true;
 		copy_env(shell, envp);
 		while (shell->env[i] && ft_strncmp("PATH=", shell->env[i], 5) != 0)
 		 	i++;
 		if (ft_strncmp("PATH=", shell->env[i], 5) != 0)
 		{
-		 	printf("Path doesn't exist\n\n");
+		 	printf("Path doesn't exist\n\n"); // don't forget to delete
 		 	shell->table->cmd->path = NULL;
 		}
 		else
