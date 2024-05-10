@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:21:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/10 14:27:22 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 15:47:21 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,43 @@
 void	prompt(t_shell *shell)
 {
 	char	*half;
-	char	*final;
-	char	*user;
 	char	*half2;
 	char	*half3;
+	char	*final;
+	char	*user;
 
 	if (shell->prompt != NULL)
 		free(shell->prompt);
-	user = ft_strjoin(get_env_var(shell, "USER=") + 5, "@"); //1st username + @
-	half = ft_strjoin_modified(user, get_env_var(shell, "HOSTNAME=") + 8); //username@ + logname
-	half2 = ft_strjoin(half, ":~"); //username@logname + :~
-	half3 = ft_strjoin_modified(half2, get_env_var(shell, "PWD=") + 4); //username@logname:~ + path
-	final = ft_strjoin(half3, "$"); //username@logname:~path + $
-	free(half);
-	free(half3);
-	shell->prompt = "on";
+    if (shell->env_exists == true)
+    {
+        if ((get_env_var(shell, "USER=") + 5 != NULL) && (get_env_var(shell, "HOSTNAME=") + 8 != NULL))
+        {
+	        user = ft_strjoin(get_env_var(shell, "USER=") + 5, "@"); //1st username + @
+	        half = ft_strjoin_modified(user, get_env_var(shell, "HOSTNAME=") + 8); //username@ + logname
+            half2 = ft_strjoin(half, ":~"); //username@logname + :~
+            if (get_env_var(shell, "PWD=") + 4 != NULL)
+             {
+	            half3 = ft_strjoin_modified(half2, get_env_var(shell, "PWD=") + 4); //username@logname:~ + path
+	            final = ft_strjoin(half3, "$"); //username@logname:~path + $
+                free(half3);
+             }
+                free(half);  
+        }
+        else
+        {
+            final = (char *)malloc(sizeof(char) * 15 + 1);
+            final = "->  minishell: ";
+        }
+    }
+    else
+    {
+        final = (char *)malloc(sizeof(char) * 15 + 1);
+        final = "->  minishell: ";
+    }
+	    shell->prompt = final;
 }
 
-/*Aditional function to help find the current directory*/
+/*Aditional function to help find the current directory
 char	*get_curr_dir(t_shell *shell)
 {
 	int		i;
@@ -43,7 +62,7 @@ char	*get_curr_dir(t_shell *shell)
 	i = 0;
 	pwd = get_env_var(shell, "PWD=");
 	
-}
+}*/
 
 /*int main() {
     // Example test array of environment variables

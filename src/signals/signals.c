@@ -6,7 +6,7 @@
 /*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:10:29 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/06 18:04:46 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/10 16:12:43 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	signal_ctrl_c(void)
 /*Function is called when control+c is pressed*/
 void	handle_sigint(int sig_num)
 {
-	if (sig_num == SIGINT)
+	if (sig_num == SIGINT) //Signal Interrupts
 	{
 		write(1, "\n", 2);
 		rl_on_new_line(); //Moves the input prompt to a new line
