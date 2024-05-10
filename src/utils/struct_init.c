@@ -6,45 +6,46 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 14:18:53 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 16:15:10 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
-void init_cmd(t_table *table)
+
+void init_cmd(t_cmd **cmd)
 {
-	table->cmd = malloc(sizeof(t_cmd));
-	if (!table->cmd)
+	*cmd = malloc(sizeof(t_cmd));
+	if (!(*cmd))
 	{
-		free(table->cmd);
+		free(*cmd);
 		// put error that memory failed
 	}
-	table->cmd->prev = NULL;
-	table->cmd->next = NULL;
-	table->cmd->builtin = false;
-	table->cmd->path = NULL;
-	table->cmd->cmd_arg = NULL;
-	table->cmd->args = NULL;
-	table->cmd->skip_cmd = false;
+	(*cmd)->prev = NULL;
+	(*cmd)->next = NULL;
+	(*cmd)->builtin = false;
+	(*cmd)->path = NULL;
+	(*cmd)->cmd_arg = NULL;
+	(*cmd)->args = NULL;
+	(*cmd)->skip_cmd = false;
 }
 
-void	init_table(t_table *table)
+void	init_table(t_table **table)
 {
-	table = malloc(sizeof(t_table));
-	if (!table)
+	*table = malloc(sizeof(t_table));
+	if (!(*table))
 	{
-		free(table);
+		free(*table);
 		// put error that memory failed
 	}
-	table->infile = STDIN_FILENO;
-	table->outfile = STDOUT_FILENO;
-	table->errfile = STDERR_FILENO;
-	table->infile_valid = true;
-	table->outfile_valid = true;
-	table->pipes = 0;
-	init_cmd(table);
+	(*table)->infile = STDIN_FILENO;
+	(*table)->outfile = STDOUT_FILENO;
+	(*table)->errfile = STDERR_FILENO;
+	(*table)->infile_valid = true;
+	(*table)->outfile_valid = true;
+	(*table)->pipes = 0;
+	init_cmd(&((*table)->cmd));
 }
 
 void	init_shell(t_shell *shell)
@@ -67,5 +68,5 @@ void	init_shell(t_shell *shell)
 	shell->prompt = NULL;
 	shell->directory = NULL;
 	shell->heredoc = NULL;
-	init_table(shell->table);
+	init_table(&(shell->table));
 }
