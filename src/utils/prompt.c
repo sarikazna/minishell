@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:21:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/10 18:27:38 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/10 18:39:09 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../../inc/minishell.h"
 
 /*Function to create the prompt*/
+// FILIPE TO FIX: In Sara's case, the prompt didn't fully appear srudman@=:~/home/srudman/minishell$
 void	prompt(t_shell *shell)
 {
 	char	*half;
@@ -26,12 +27,12 @@ void	prompt(t_shell *shell)
 		free(shell->prompt);
     if (shell->env_exists == true)
     {
-        if ((get_env_var(shell, "USER=") + 5 != NULL) && (get_env_var(shell, "HOSTNAME=") + 8 != NULL))
+        if ((get_env_var(shell, "USER=") != NULL) && (get_env_var(shell, "HOSTNAME=") != NULL))
         {
 	        user = ft_strjoin(get_env_var(shell, "USER=") + 5, "@"); //1st username + @
 	        half = ft_strjoin_modified(user, get_env_var(shell, "HOSTNAME=") + 8); //username@ + logname
             half2 = ft_strjoin(half, ":~"); //username@logname + :~
-            if (get_env_var(shell, "PWD=") + 4 != NULL)
+            if (get_env_var(shell, "PWD=") != NULL)
              {
 	            half3 = ft_strjoin_modified(half2, get_env_var(shell, "PWD=") + 4); //username@logname:~ + path
 	            final = ft_strjoin(half3, "$ "); //username@logname:~path + $
