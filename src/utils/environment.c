@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:09:23 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 16:16:13 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 17:15:29 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,25 +91,15 @@ void	env_handling(t_shell *shell, char **envp)
 		}
 		else
 		{
-		printf("infile: %d\n", shell->table->infile);
-    	printf("outfile: %d\n", shell->table->outfile);
-    	printf("errfile: %d\n", shell->table->errfile);
-    	printf("infile_valid: %d\n", shell->table->infile_valid);
-    	printf("outfile_valid: %d\n", shell->table->outfile_valid);
-    	printf("pipes: %d\n", shell->table->pipes);
-		// printf("PATH environment: %s\n\n", envp[i]);
-		// i = 0;
-		// while (shell->table->cmd->path[i])
-		// 	printf("Struct to path: %s\n\n", envp[i]);
-		// shell->table->cmd->path = ft_split(shell->env[i] + 5, ':');
+			shell->table->cmd->path = ft_split(shell->env[i] + 5, ':');
 		}
 	}
-	// else
-	// {
-	// 	shell->env_exists = false;
-	// 	shell->table->cmd->path = NULL;
-	// }
-	// init_missing_env(shell, envp);
+	else
+	{
+		shell->env_exists = false;
+		shell->table->cmd->path = NULL;
+	}
+	init_missing_env(shell, envp);
 }
 
 

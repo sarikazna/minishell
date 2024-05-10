@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:12:15 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 15:58:40 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 17:16:36 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ minishell loop using while (1). */
 
 int	main(int argc, char **argv, char **envp)
 {
-	t_shell shell;
+	t_shell *shell;
 	
 	// loop inspiration> https://github.com/Alice-inNovember/42_Minishell/blob/main/srcs/main.c#L35
 	arg_checker(argc, argv); // checker to run ./minishell
 	ft_putstr_fd("\nFilipe and Sara welcome you to minishell\n", STDOUT_FILENO);
 	init_shell(&shell);
-	env_handling(&shell, envp);
-    //while (1) // minisehll loop
-    //{
+	env_handling(shell, envp);
+    while (1) // minisehll loop
+    {
+		// prompt - Filipe
 		// signal handling - Filipe to do
 		// enviroment - Sara to do
 		// customer terminal promt - Filipe to do
@@ -41,7 +42,7 @@ int	main(int argc, char **argv, char **envp)
 		// error handling
 		// clear data
 		(void)envp;
-   // }
+	}
 	return (0);
 }
 

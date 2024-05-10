@@ -6,13 +6,13 @@
 #    By: srudman <srudman@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/10 14:05:21 by srudman          ###   ########.fr        #
+#    Updated: 2024/05/10 15:10:43 by srudman          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= minishell
 CC 			= cc
-CFLAGS    	= -Wall -Wextra -Werror -g
+CFLAGS    	= -Wall -Wextra -Werror -g -fsanitize=address
 FT_INCLUDE 	= -Ilibft -Llibft -lft
 
 LIBFTP 		= libft/
