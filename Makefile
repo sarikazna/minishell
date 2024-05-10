@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: srudman <srudman@student.42.fr>            +#+  +:+       +#+         #
+#    By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/10 15:10:43 by srudman          ###   ########.fr        #
+#    Updated: 2024/05/10 17:58:39 by filipemfbgo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,14 @@ PATHEX		= src/executor/
 PATHL		= src/lexer/
 PATHP		= src/parser/
 PATHU		= src/utils/
+PATHS		= src/signals/
 
-SRCS 	=  src/main.c \
-		   src/utils/checker.c \
+SRCS 	=  src/utils/checker.c \
 		   src/utils/struct_init.c \
-		   src/utils/environment.c
+		   src/signals/signals.c	\
+		   src/utils/environment.c \
+		   src/utils/prompt.c \
+		   src/main.c
 
 OBJ		=	$(addprefix $(OBJ_DIR)/, $(notdir $(patsubst %.c, %.o, $(SRCS))))
 
@@ -40,7 +43,7 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(NAME): $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(FT_INCLUDE) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(FT_INCLUDE) -lreadline -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "Compiling ${notdir $<}	in	$(SRC_DIR)"
@@ -49,6 +52,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(OBJ_DIR)/%.o: $(PATHU)/%.c
 	@echo "Compiling ${notdir $<}	in	$(PATHU)"
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(PATHS)/%.c
+	@echo "Compiling ${notdir $<}	in	$(PATHS)"
+	@$(CC) $(CFLAGS)  -c $< -o $@
 
 # $(OBJ_DIR)/%.o: $(PATHB)/%.c
 # 	@echo "Compiling ${notdir $<}	in	$(PATHB)"

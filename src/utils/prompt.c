@@ -6,10 +6,11 @@
 /*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:21:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/10 15:47:21 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/10 18:27:38 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
 /*Function to create the prompt*/
@@ -33,36 +34,22 @@ void	prompt(t_shell *shell)
             if (get_env_var(shell, "PWD=") + 4 != NULL)
              {
 	            half3 = ft_strjoin_modified(half2, get_env_var(shell, "PWD=") + 4); //username@logname:~ + path
-	            final = ft_strjoin(half3, "$"); //username@logname:~path + $
+	            final = ft_strjoin(half3, "$ "); //username@logname:~path + $
                 free(half3);
              }
-                free(half);  
+                free(half);
         }
         else
         {
-            final = (char *)malloc(sizeof(char) * 15 + 1);
             final = "->  minishell: ";
         }
     }
     else
     {
-        final = (char *)malloc(sizeof(char) * 15 + 1);
         final = "->  minishell: ";
     }
 	    shell->prompt = final;
 }
-
-/*Aditional function to help find the current directory
-char	*get_curr_dir(t_shell *shell)
-{
-	int		i;
-	char	*directory;
-	char	*pwd;
-
-	i = 0;
-	pwd = get_env_var(shell, "PWD=");
-	
-}*/
 
 /*int main() {
     // Example test array of environment variables

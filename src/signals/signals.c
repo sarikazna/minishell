@@ -6,16 +6,26 @@
 /*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:10:29 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/10 16:12:43 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/10 17:55:08 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
-void	signals(void)
+/*Go back here when doing heredocs, cuz we might need a variable 
+to store when control+c is pressed*/
+
+/*Function is called when control+c is pressed*/
+void	handle_sigint(int sig_num)
 {
-	signal_ctrl_slash();
-	signal_ctrl_c();
+	if (sig_num == SIGINT) //Signal Interrupts
+	{
+		write(1, "\n", 2);
+		rl_on_new_line(); //Moves the input prompt to a new line
+		rl_replace_line("", 0); //Clears the first line of the input prompt. 0 is the number of characters to replace so it means the entire line will be replaced
+		rl_redisplay(); //Refreshes the display of the input line, reflecting any changes made to it since the last time it was displayed.
+	}
 }
 
 /*What this function does is basically calls the function "handle_sigint" when captures the control_c signal
@@ -30,18 +40,6 @@ void	signal_ctrl_c(void)
 	sigaction(SIGINT, &ctrl_c, NULL);
 }
 
-/*Function is called when control+c is pressed*/
-void	handle_sigint(int sig_num)
-{
-	if (sig_num == SIGINT) //Signal Interrupts
-	{
-		write(1, "\n", 2);
-		rl_on_new_line(); //Moves the input prompt to a new line
-		rl_replace_line("", 0); //Clears the first line of the input prompt. 0 is the number of characters to replace so it means the entire line will be replaced
-		rl_redisplay(); //Refreshes the display of the input line, reflecting any changes made to it since the last time it was displayed.
-	}
-}
-
 /*What this function does is basically calls the function "SIG_IGN" when captures the control_c signal 
 When control+/ is pressed, it should do nothing*/
 void	signal_ctrl_slash(void)
@@ -52,4 +50,10 @@ void	signal_ctrl_slash(void)
 	ctrl_slash.sa_flags = SA_RESTART;
 	sigemptyset(&ctrl_slash.sa_mask);
 	sigaction(SIGQUIT, &ctrl_slash, NULL);
+}
+
+void	signals(void)
+{
+	signal_ctrl_slash();
+	signal_ctrl_c();
 }

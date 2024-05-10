@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:12:15 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 17:16:36 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/10 18:24:43 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ int	main(int argc, char **argv, char **envp)
 	ft_putstr_fd("\nFilipe and Sara welcome you to minishell\n", STDOUT_FILENO);
 	init_shell(&shell);
 	env_handling(shell, envp);
-    while (1) // minisehll loop
+    while (1) // minishell loop
     {
-		// prompt - Filipe
-		// signal handling - Filipe to do
+		signals(); // signal handling - Filipe to do
+		prompt(shell); // prompt - Filipe
+		readline(shell->prompt);
 		// enviroment - Sara to do
 		// customer terminal promt - Filipe to do
 		// readline - Sara to do
