@@ -6,7 +6,7 @@
 /*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:09:23 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 18:52:59 by srudman          ###   ########.fr       */
+/*   Updated: 2024/06/03 16:57:46 by srudman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	env_handling(t_shell *shell, char **envp)
 	int	i;
 
 	i = 0;
-	(void)i;
+	(void)i; // delete after
 	if (envp != NULL)
 	{
 		printf("Env copy: %s\n", envp[i]);
