@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:53:06 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/28 16:50:16 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:43:34 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	update_pwd_oldpwd(t_shell *shell)
 	new_pwd = getcwd(NULL, sizeof(path));
 	pwd_join = ft_strjoin("PWD=", new_pwd);
 	old_pwd_join = ft_strjoin("OLDPWD=", old_pwd);
-	replace_var_content(shell, old_pwd_join, "OLDPWD"); //do export
-	replace_var_content(shell, pwd_join, "PWD"); //do export
+	//replace_var_content(shell, old_pwd_join, "OLDPWD"); //Adaptar ideia do export
+	//replace_var_content(shell, pwd_join, "PWD"); //Adaptar ideia do export
 	free(old_pwd_join);
 	free(pwd_join);
 	free(new_pwd);
@@ -60,5 +60,5 @@ void	add_oldpwd(t_shell *shell)
 
 	oldpwd = get_env_var(shell, "OLDPWD=");
 	if (!oldpwd)
-		add_to_env(shell, "OLDPWD"); //To do for export
+		add_to_env(shell, "OLDPWD"); //Adapt from export
 }

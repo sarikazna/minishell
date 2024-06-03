@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:18:11 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/27 17:18:28 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:55:49 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 int	ft_exit(t_shell	*shell)
 {
-	char	**args;
-	char	*cmd;
+	char	**cmd_arg;
 	int		exit_code;
 	
-	args = shell->table->cmd->args;
-	if (ft_strcmp(args[0], "exit") == TRUE && args[1] == NULL)
+	args = shell->table->cmd->cmd_arg;
+	if (ft_strcmp(cmd_arg[0], "exit") == TRUE && cmd_arg[1] == NULL)
 			normal_exit(shell);
-	if (ft_strcmp(args[0], "exit") == TRUE && args[1] != NULL && args[2] != NULL)
+	if (ft_strcmp(cmd_arg[0], "exit") == TRUE && cmd_arg[1] != NULL && cmd_arg[2] != NULL)
 	{
-			ft_putstr_fd("minishell: exit: too many arguments\n", STDERR_FILENO);
+			ft_putstr_fd("minishell: exit: too many arguments\n", shell->table->errfile);
 			return (EXIT_FAILURE);
 	}
-	else if (args[2] == NULL && args[1] != NULL)
+	else if (cmd_arg[2] == NULL && cmd_arg[1] != NULL)
 			exit_code(shell, args);
 }
 
 void	normal_exit(t_shell *shell)
 {
-	ft_putendl_fd("exit", STDERR_FILENO);
+	ft_putendl_fd("exit", shell->table->errfile);
 	//function to free
 	exit(0);
 }
@@ -50,10 +49,10 @@ void exit_code(t_shell *shell, char **args)
 	else
 	{
 		code = 255;
-		ft_putendl_fd("exit", STDERR_FILENO);
-		ft_putstr_fd("minishell: exit: ", STDERR_FILENO);
-		ft_putstr_fd(args[1], STDERR_FILENO);
-		ft_putstr_fd(": numeric argument required\n", STDERR_FILENO);
+		ft_putendl_fd("exit", shell->table->errfile);
+		ft_putstr_fd("exit: ", shell->table->errfile);
+		ft_putstr_fd(args[1], shell->table->errfile);
+		ft_putstr_fd(": numeric argument required\n", shell->table->errfile);
 		//function to free
 		exit(code);
 	}

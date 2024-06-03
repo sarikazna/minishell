@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 15:15:26 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/06/01 16:41:01 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:54:36 by filipemfbgo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	unset(t_shell *shell)
 {
-	char	**args;
+	char	**cmd_arg;
 	char	**tmp;
 	int		i;
 
 	i = 1;
-	args = shell->table->cmd->args;
-	if (unset_error(shell, args) == 1)
+	args = shell->table->cmd->cmd_arg;
+	if (unset_error(shell, cmd_arg) == 1)
 		return (EXIT_FAILURE);
 	else
 	{
-		while (args[i] != NULL)
+		while (cmd_arg[i] != NULL)
 		{
-			tmp = del_var(shell->env, args[i]);
+			tmp = del_var(shell->env, cmd_arg[i]);
 			//free env;
 			shell->env = tmp;
 		}
@@ -41,23 +41,23 @@ int	unset_error(t_shell *shell, char **args)
 	i = 0;
 	if (args[1] == NULL)
 	{
-		ft_putendl_fd("minishell: unset: not enough arguments", STDERR_FILENO);
+		ft_putendl_fd("unset: not enough arguments", shell->table->errfile);
 		return (EXIT_FAILURE);
 	}
 	while (args[i] != NULL) //Verify start for each argument
 	{
 		if (ft_strlen(args[i]) == 0 || args[i][0] == '?' || args[i][0] == '$')
 		{
-			ft_putstr_fd("minishell: unset: `", STDERR_FILENO);
-			ft_putstr_fd(args[i], STDERR_FILENO);
-			ft_putendl_fd("': not a valid identifier", STDERR_FILENO);
+			ft_putstr_fd("unset: `", shell->table->errfile);
+			ft_putstr_fd(args[i], shell->table->errfile);
+			ft_putendl_fd("': not a valid identifier", shell->table->errfile);
 			return (EXIT_FAILURE);
 		}
 		else if ((arg[i][0] >= 48 && arg[i][0] <= 57) || invalid_chars(arg[i]) == 1)
 		{
-			ft_putstr_fd("minishell: unset: `", STDERR_FILENO);
-			ft_putstr_fd(args[i], STDERR_FILENO);
-			ft_putendl_fd("': invalid parameter name", STDERR_FILENO);
+			ft_putstr_fd("unset: `", shell->table->errfile);
+			ft_putstr_fd(args[i], shell->table->errfile);
+			ft_putendl_fd("': invalid parameter name", shell->table->errfile);
 			return (EXIT_FAILURE);
 		}
 		i++;
