@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+         #
+#    By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/10 17:58:39 by filipemfbgo      ###   ########.fr        #
+#    Updated: 2024/05/20 16:10:43 by fde-mour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= minishell
 CC 			= cc
-CFLAGS    	= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS    	= -Wall -Wextra -Werror -g
 FT_INCLUDE 	= -Ilibft -Llibft -lft
 
 LIBFTP 		= libft/
