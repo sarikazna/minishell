@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:21:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/10 18:39:09 by srudman          ###   ########.fr       */
+/*   Updated: 2024/05/20 16:28:45 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	prompt(t_shell *shell)
 		free(shell->prompt);
     if (shell->env_exists == true)
     {
-        if ((get_env_var(shell, "USER=") != NULL) && (get_env_var(shell, "HOSTNAME=") != NULL))
+        if ((get_env_var(shell, "USER=") != NULL) && (get_env_var(shell, "LOGNAME=") != NULL))
         {
 	        user = ft_strjoin(get_env_var(shell, "USER=") + 5, "@"); //1st username + @
 	        half = ft_strjoin_modified(user, get_env_var(shell, "HOSTNAME=") + 8); //username@ + logname

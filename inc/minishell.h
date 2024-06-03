@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 20:21:35 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 17:47:23 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/05/27 17:02:33 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_shell
 	char	*prompt;
 	char	*directory;
     char	*heredoc; // int or char?
+	int		exit_code;
 	t_table *table;
 }   t_shell;
 
