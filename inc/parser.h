@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:38:29 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/06 19:07:12 by srudman          ###   ########.fr       */
+/*   Updated: 2024/07/08 16:10:54 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
+
+# include <stdbool.h>
 # include "minishell.h"
 
 /* STRUCTS*/
@@ -31,7 +33,6 @@ typedef struct s_cmd
 	bool	skip_cmd; // in case it's already proven to be invalid. Default value = false;
 }	t_cmd;
 
-
 /* Final command table provided by the parser to the executor*/
 typedef struct s_table
 {
@@ -43,5 +44,16 @@ typedef struct s_table
 	bool	outfile_valid; // not needed? true
 	int		pipes; // default 0
 }	t_table;
+
+typedef struct s_shell
+{
+	char	*env[100]; // enivronemtn needed for excve(___, ____, **env);
+	bool	env_exists; // yes/ no, default yes
+	char	*prompt;
+	char	*directory;
+    char	*heredoc; // int or char?
+	int		exit_code;
+	t_table *table;
+}   t_shell;
 
 #endif

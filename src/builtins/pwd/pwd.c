@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 15:13:33 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/06/03 17:41:06 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/07/08 15:14:57 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pwd(t_shell *shell)
 {
 	char *curr_pwd;
 	
-	curr_pwd ⁼ get_env_var(shell, "PWD=");
+	curr_pwd = get_env_var(shell, "PWD=");
 	if (curr_pwd == NULL)
 		ft_putendl_fd("Minishell pwd: NOT DEFINED", shell->table->errfile);
 	else

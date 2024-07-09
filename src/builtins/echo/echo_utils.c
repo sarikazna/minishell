@@ -6,11 +6,13 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:06:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/28 14:56:06 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/09 18:22:35 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*SingleQuote é 0 e DoubleQuote é 1*/
+
+#include "../../../inc/minishell.h"
 
 void	echo_print(char *str, int i, int j, int quote) 
 {
@@ -29,14 +31,21 @@ void	echo_print(char *str, int i, int j, int quote)
 		{
 			while (str[j] == 92)
 				j++;
-			i = write_escapes(str, j, i);
+			i = write_backslash(str, j, i);
 		}
+		if (str[i] != 34 && str[i] != 39)
+			write(1, &str[i], 1);
+		else if (str[i] == 39)
+			if (quote == 1)
+				write(1, &str[i], 1);
+		i++;
 	}
 }
 
 int write_backslash(char *str, int backslash_nb, int i)
 {
     int k;
+	(void)str;
 	
     // If only one backslash is needed, return the incremented index
     if (backslash_nb == 1)
@@ -80,7 +89,7 @@ bool	is_special_filled(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == DQUOTE || str[i] == SQUOTE || str[i] == ' ')
+		if (str[i] == 34 || str[i] == 39 || str[i] == ' ')
 			i++;
 		else
 			return (FALSE);

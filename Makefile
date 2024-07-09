@@ -5,37 +5,43 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/03 17:54:12 by srudman           #+#    #+#              #
-#    Updated: 2024/05/20 16:10:43 by fde-mour         ###   ########.fr        #
+#    Created: 2024/07/08 16:38:32 by fde-mour          #+#    #+#              #
+#    Updated: 2024/07/09 18:01:49 by fde-mour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= minishell
 CC 			= cc
 CFLAGS    	= -Wall -Wextra -Werror -g
-FT_INCLUDE 	= -Ilibft -Llibft -lft
+FT_INCLUDE 	= -Ilibft -Llibft -lft -Iinc
 
+LIBFT 		= libft/libft.a
 LIBFTP 		= libft/
 SRC_DIR		= src/
-OBJ_DIR		= objs
-PATHB		= src/builtins/
-PATHER		= src/error/
-PATHEX		= src/executor/
-PATHL		= src/lexer/
-PATHP		= src/parser/
-PATHU		= src/utils/
-PATHS		= src/signals/
+OBJ_DIR		= obj
 
-SRCS 	=  src/utils/checker.c \
-		   src/utils/struct_init.c \
-		   src/signals/signals.c	\
-		   src/utils/environment.c \
-		   src/utils/prompt.c \
-		   src/main.c
+UTILS 		= src/utils/checker.c 		\
+			  	src/utils/environment.c \
+			  	src/utils/prompt.c 		\
+			  	src/utils/struct_init.c
 
-OBJ		=	$(addprefix $(OBJ_DIR)/, $(notdir $(patsubst %.c, %.o, $(SRCS))))
+MAIN 		= src/main_test.c
 
-LIBFT = libft/libft.a
+SIGNALS		= src/signals/signals.c
+
+BUILTINS 	= src/builtins/pwd/pwd.c \
+				src/builtins/env/env.c \
+				src/builtins/cd/cd_options.c \
+				src/builtins/cd/cd.c \
+				src/builtins/export/export.c \
+				src/builtins/export/export_utils.c \
+				src/builtins/unset/unset_utils.c \
+				src/builtins/echo/echo.c \
+				src/builtins/echo/echo_utils.c
+
+SOURCE = $(UTILS) $(SIGNALS) $(BUILTINS) $(MAIN)
+		  
+OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(UTILS) $(SIGNALS) $(BUILTINS) $(MAIN))
 
 all: $(OBJ_DIR) $(NAME)
 
@@ -45,38 +51,8 @@ $(OBJ_DIR):
 $(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(FT_INCLUDE) -lreadline -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@echo "Compiling ${notdir $<}	in	$(SRC_DIR)"
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR)/%.o: $(PATHU)/%.c
-	@echo "Compiling ${notdir $<}	in	$(PATHU)"
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR)/%.o: $(PATHS)/%.c
-	@echo "Compiling ${notdir $<}	in	$(PATHS)"
-	@$(CC) $(CFLAGS)  -c $< -o $@
-
-# $(OBJ_DIR)/%.o: $(PATHB)/%.c
-# 	@echo "Compiling ${notdir $<}	in	$(PATHB)"
-# 	@$(CC) $(CFLAGS) -c $< -o $@
-
-# $(OBJ_DIR)/%.o: $(PATHER)/%.c
-# 	@echo "Compiling ${notdir $<}	in	$(PATHER)"
-# 	@$(CC) $(CFLAGS) -c $< -o $@
-
-# $(OBJ_DIR)/%.o: $(PATHEX)/%.c
-# 	@echo "Compiling ${notdir $<}	in	$(PATHEX)"
-# 	@$(CC) $(CFLAGS) -c $< -o $@
-
-# $(OBJ_DIR)/%.o: $(PATHL)/%.cs
-# 	@echo "Compiling ${notdir $<}	in	$(PATHL)"
-# 	@$(CC) $(CFLAGS) -c $< -o $@
-
-# $(OBJ_DIR)/%.o: $(PATHP)/%.c
-# 	@echo "Compiling ${notdir $<}	in	$(PATHP)"
-# 	@$(CC) $(CFLAGS) -c $< -o $@
-
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c
+	@$(CC) -c $< -o $@
 
 $(LIBFT):
 	@$(MAKE) -C ./libft

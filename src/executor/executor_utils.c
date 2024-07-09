@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   executor_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/27 21:41:12 by srudman           #+#    #+#             */
-/*   Updated: 2024/07/08 16:17:22 by fde-mour         ###   ########.fr       */
+/*   Created: 2024/07/02 15:49:03 by fde-mour          #+#    #+#             */
+/*   Updated: 2024/07/02 15:55:32 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
-# include "minishell.h"
+void	simple_execute(t_shell *shell)
+{
+	int	status;
+	pid_t	pid;
 
-void	arg_checker(int argc, char **argv);
-void	init_shell(t_shell **shell);
+	pid = fork();
+	if (pid == -1)
+		ft_putstr_fd("minishell: fork failed, no child has been created", shell->table->errfile);
+	else if (pid == 0) //The command happens in the child process
+	
+}
 
-// void	init_table(t_table **table);
-char	*get_env_var(t_shell *shell, char *var);
-void	env_handling(t_shell *shell, char **envp);
-
-void	signals(void);
-void	prompt(t_shell *shell);
-
-#endif
+void	execute_in_child(t_shell *shell)
+{
+	
+}

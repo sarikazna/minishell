@@ -3,10 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 17:33:32 by filipemfbgo       #+#    #+#             */
-/*   Updated: 2024/06/03 17:33:33 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/06/05 15:57:16 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../inc/minishell.h"
+
+void	redirections(t_shell *shell)
+{
+	
+}

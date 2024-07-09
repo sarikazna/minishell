@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:59 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/10 17:50:30 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/07/08 16:13:02 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
 /* Checking if the person ran ./minishell without mistakes (e.g. extra

@@ -6,14 +6,25 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 20:21:35 by srudman           #+#    #+#             */
-/*   Updated: 2024/05/27 17:02:33 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/09 15:45:37 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+//OWN HEADERS
+# include "parser.h"
+# include "utils.h"
+# include "error.h"
+# include "lexer.h"
+# include "builtins.h"
+# include "executor.h"
+# include "../libft/libft.h"
+
+//STANDARD HEADERS
 # include <unistd.h>
+# include <stddef.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <readline/readline.h>
@@ -29,27 +40,7 @@
 # include <dirent.h>
 # include <sys/ioctl.h> // needed for ioctl
 # include <termios.h>
-# include <stdbool.h>
 # include <curses.h>
 # include <term.h>
-# include "../libft/libft.h"
-# include "parser.h"
-# include "utils.h"
-# include "error.h"
-# include "lexer.h"
-# include "builtins.h"
-# include "executor.h"
-
-typedef struct s_shell
-{
-	char	*env[100]; // enivronemtn needed for excve(___, ____, **env);
-	bool	env_exists; // yes/ no, default yes
-	char	*prompt;
-	char	*directory;
-    char	*heredoc; // int or char?
-	int		exit_code;
-	t_table *table;
-}   t_shell;
-
 
 #endif

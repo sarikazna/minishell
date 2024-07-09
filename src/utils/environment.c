@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:09:23 by srudman           #+#    #+#             */
-/*   Updated: 2024/06/03 16:57:46 by srudman          ###   ########.fr       */
+/*   Updated: 2024/07/08 16:13:03 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
 // SARA TO DO: seg fault when env -i ./minishell
@@ -81,7 +80,7 @@ void	env_handling(t_shell *shell, char **envp)
 	(void)i; // delete after
 	if (envp != NULL)
 	{
-		printf("Env copy: %s\n", envp[i]);
+		//printf("Env copy: %s\n", envp[i]);
 		// left off here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		shell->env_exists = true;
 		copy_env(shell, envp);

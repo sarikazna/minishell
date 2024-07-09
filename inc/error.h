@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:44:38 by srudman           #+#    #+#             */
-/*   Updated: 2024/04/27 21:46:48 by srudman          ###   ########.fr       */
+/*   Updated: 2024/07/08 15:24:01 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
+
 # include "minishell.h"
 
 

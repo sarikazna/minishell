@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   executor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:44:28 by srudman           #+#    #+#             */
-/*   Updated: 2024/04/27 21:47:07 by srudman          ###   ########.fr       */
+/*   Updated: 2024/07/08 15:23:57 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXECUTOR_H
 # define EXECUTOR_H
+
 # include "minishell.h"
 
 

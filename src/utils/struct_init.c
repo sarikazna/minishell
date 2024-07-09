@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   struct_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srudman <srudman@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/06/03 16:49:19 by srudman          ###   ########.fr       */
+/*   Updated: 2024/07/08 15:15:18 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
 // TO DO: Double check that all the variables in the structs are initialised

@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipemfbgomes <filipemfbgomes@student.    +#+  +:+       +#+        */
+/*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:10:29 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/05/10 17:55:08 by filipemfbgo      ###   ########.fr       */
+/*   Updated: 2024/07/08 15:23:20 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/utils.h"
 #include "../../inc/minishell.h"
 
 /*Go back here when doing heredocs, cuz we might need a variable 

@@ -6,13 +6,13 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:36:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/06/02 16:20:58 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/09 15:46:21 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minishell.h"
+#include "../../../inc/minishell.h"
 
-int	export(t_shell *shell)
+/*int	export(t_shell *shell)
 {
 	char	**tmp;
 	char	**args;
@@ -39,7 +39,7 @@ int	export(t_shell *shell)
 		}
 	}
 	return (EXIT_SUCESS);
-}
+}*/
 
 char	**add_var(char **env, char *str)
 {
@@ -60,12 +60,12 @@ char	**add_var(char **env, char *str)
 	return (new_env);
 }
 
-char	**loop_add_var(char **env, char **new_env, str)
+char	**loop_add_var(char **env, char **new_env, char *str)
 {
 	int	i;
 
 	i = 0;
-	while (env[i] != '\0')
+	while (env[i])
 	{
 		if (env[i + 1] == NULL)
 		{
