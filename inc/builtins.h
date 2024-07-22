@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:48:53 by srudman           #+#    #+#             */
-/*   Updated: 2024/07/09 18:09:28 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:58:27 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ char	*modify_str_quotes(char *str, char c);
 size_t	equal_sign(char *str);
 
 //echo
-void	run_echo(t_shell *shell, char **args);
+void	run_echo(t_shell *shell, char **args, char **cmd_args);
+bool	is_flag_valid(char	*flag);
 void	echo_print(char *str, int i, int j, int quote);
-int 	write_backslash(char *str, int backslash_nb, int i);
+int 	write_backslash(int backslash_nb, int i);
 int		has_quotes(char *str);
 bool	is_special_filled(char *str);
+int 	echo_n_flag(char **cmd_args, char **args);
+bool 	has_content(char **array);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:06:12 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/07/09 18:57:51 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:36:37 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ void	print_double_pointer(char **arr)
 int	main(int argc, char **argv, char **envp)
 {
 	t_shell *shell;
-	char *args[] = { "echo", "Boas", NULL }; 
+	char *cmd_args[] = {"echo", NULL};
+	char *args[] = {"Boas", NULL};
 	
 	arg_checker(argc, argv);
-	ft_putstr_fd("\nFilipe and Sara welcome you to minishell\n", STDOUT_FILENO);
+	//ft_putstr_fd("\nFilipe and Sara welcome you to minishell\n", STDOUT_FILENO);
 	init_shell(&shell);
 	env_handling(shell, envp);
-	run_echo(shell, args);
+	run_echo(shell, args, cmd_args);
 	return (0);
 }
