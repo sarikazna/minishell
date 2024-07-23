@@ -6,13 +6,13 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 15:15:26 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/07/09 15:48:47 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:34:44 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minishell.h"
+#include "../../../inc/minishell.h"
 
-int	unset(t_shell *shell)
+int	ft_unset(t_shell *shell)
 {
 	char	**cmd_arg;
 	char	**tmp;

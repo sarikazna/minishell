@@ -6,13 +6,13 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 15:55:56 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/07/09 15:49:01 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:34:26 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-/*int	invalid_chars(char	*arg)
+int	invalid_chars(char	*arg)
 {
 	int	i;
 	
@@ -66,7 +66,7 @@ char	**loop_del_var(char	**env, char	**new_env, char	*str)
 	}
 	return (new_env);
 }
-*/
+
 size_t	equal_sign(char *str)
 {
 	size_t	i;

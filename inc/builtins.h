@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:48:53 by srudman           #+#    #+#             */
-/*   Updated: 2024/07/19 17:58:27 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:33:41 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "minishell.h"
 
 void	pwd(t_shell *shell);
-int		env(t_shell *shell);
+int		env(t_shell *shell, char **args);
 
 //cd
 void	cd(t_shell *shell, char *args);
@@ -33,6 +33,7 @@ int		check_identifier(char c);
 int		args_check(char	*str);
 int		var_exist(t_shell *shell, char *str);
 char	*modify_str_quotes(char *str, char c);
+int		ft_export(t_shell *shell, char **args);
 
 //unset
 size_t	equal_sign(char *str);

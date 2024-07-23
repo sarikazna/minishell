@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 15:50:23 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/07/22 16:57:17 by fde-mour         ###   ########.fr       */
+/*   Created: 2024/07/22 16:50:10 by fde-mour          #+#    #+#             */
+/*   Updated: 2024/07/22 16:53:51 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-int	env(t_shell *shell, char **args)
+void	free_double_arr(char **arr)
 {
-	int		i;
-	//char	**args;
+	int	i;
 
-	//args = shell->table->cmd->args;
 	i = 0;
-	if (args[1] != NULL)
+	while (arr[i] != NULL)
 	{
-		ft_putstr_fd("Env command with too many arguments", shell->table->errfile);
-		return (EXIT_FAILURE);
-	}
-	while (shell->env[i])
-	{
-		ft_putendl_fd(shell->env[i], shell->table->outfile);
+		free(arr[i]);
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	free(arr);
 }

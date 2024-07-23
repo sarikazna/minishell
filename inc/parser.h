@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 21:38:29 by srudman           #+#    #+#             */
-/*   Updated: 2024/07/08 16:10:54 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 15:56:25 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_table
 
 typedef struct s_shell
 {
-	char	*env[100]; // enivronemtn needed for excve(___, ____, **env);
+	char	**env; // enivronemtn needed for excve(___, ____, **env);
 	bool	env_exists; // yes/ no, default yes
 	char	*prompt;
 	char	*directory;

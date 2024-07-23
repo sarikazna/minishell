@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:48:49 by srudman           #+#    #+#             */
-/*   Updated: 2024/07/08 15:15:18 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 16:42:27 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	init_table(t_table **table)
 
 void	init_shell(t_shell **shell)
 {
-	int	i;
+	//int	i;
 
 	*shell = malloc(sizeof(t_shell));
 	if (!(*shell))
@@ -61,13 +61,13 @@ void	init_shell(t_shell **shell)
 		// memory allocation failure and error management
 		exit(EXIT_FAILURE); // to change
 	}
-	i = 0;
-	while(i < 100)
+	//i = 0;
+	/*while(i < 100)
 	{
 		(*shell)->env[i] = NULL;
 		i++;
-	}
-	(*shell)->env_exists = true;
+	}*/
+	(*shell)->env_exists = false;
 	(*shell)->prompt = NULL;
 	(*shell)->directory = NULL;
 	(*shell)->heredoc = NULL;

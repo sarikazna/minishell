@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:37:04 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/07/09 15:48:23 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:32:07 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	args_check(char	*str)
 		return (EXIT_FAILURE);
 	while (str[i] != '=')
 	{
-		if (check_identifier(str[i]))
+		if (check_identifier(str[i] == 1))
 			return (export_error(str));
 		i++;
 	}

@@ -6,7 +6,7 @@
 #    By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 16:38:32 by fde-mour          #+#    #+#              #
-#    Updated: 2024/07/09 18:01:49 by fde-mour         ###   ########.fr        #
+#    Updated: 2024/07/23 17:33:55 by fde-mour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ BUILTINS 	= src/builtins/pwd/pwd.c \
 				src/builtins/cd/cd.c \
 				src/builtins/export/export.c \
 				src/builtins/export/export_utils.c \
+				src/builtins/unset/unset.c \
 				src/builtins/unset/unset_utils.c \
 				src/builtins/echo/echo.c \
 				src/builtins/echo/echo_utils.c

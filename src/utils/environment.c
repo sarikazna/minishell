@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:09:23 by srudman           #+#    #+#             */
-/*   Updated: 2024/07/08 16:13:03 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 16:51:18 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,66 +42,78 @@ char	*get_env_var(t_shell *shell, char *var)
 }
 
 /* What env do we have to add or handle? */
-void	init_missing_env(t_shell *shell, char **envp)
+void	init_missing_env(t_shell *shell)
 {
 	if (get_env_var(shell, "USER=") == NULL)
 		shell->env[ft_last_array(shell->env)] = ft_strdup("USER=");
-	if (get_env_var(shell, "HOSTNAME=") == NULL)
+	else if (get_env_var(shell, "HOSTNAME=") == NULL)
 		shell->env[ft_last_array(shell->env)] = ft_strdup("HOSTNAME=");
-	if (get_env_var(shell, "SHLVL=") == NULL)
+	else if (get_env_var(shell, "SHLVL=") == NULL)
 		shell->env[ft_last_array(shell->env)] = ft_strdup("SHLVL=1");
-	if (get_env_var(shell, "_=/usr/bin") == NULL)
+	else if (get_env_var(shell, "_=/usr/bin") == NULL)
 		shell->env[ft_last_array(shell->env)] = ft_strdup("_=/usr/bin/env");
 	// if (get_env_var(shell, "OLDPWD=") == NULL)
 	// 	shell->env[ft_last_array(shell->env)] = ft_strjoin_modified("OLDPWD=", /* I need pwd here. I think I need to use getpwd() function*/);
 	// if (get_env_var(shell, "PWD=") == NULL)
 	// 	shell->env[ft_last_array(shell->env)] = ft_strjoin_modified("PWD=", /* I need pwd here. I think I need to use getpwd() function*/);
-	(void)envp;
 }
 
-void	copy_env(t_shell *shell, char **envp)
+char	**copy_env(char **envp, char **new_envp)
 {
 	int	i;
 
 	i = 0;
 	while(envp[i] != NULL)
 	{
-		shell->env[i] = ft_strdup(envp[i]);
+		new_envp[i] = ft_strdup(envp[i]);
 		// printf("Copy of envp: %s\n\n", shell->env[i]);
 		i++;
 	}
+	return (new_envp);
+}
+
+int	count_env(char **envp)
+{
+	int i;
+
+	i = 0;
+	while (envp[i] != NULL)
+		i++;
+	return (i);
 }
 
 void	env_handling(t_shell *shell, char **envp)
 {
 	int	i;
+	char **new_envp;
 
 	i = 0;
+	new_envp = (char **)malloc((sizeof(char *) * count_env(envp)) + 1);
 	(void)i; // delete after
 	if (envp != NULL)
 	{
 		//printf("Env copy: %s\n", envp[i]);
 		// left off here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		shell->env_exists = true;
-		copy_env(shell, envp);
-		while (shell->env[i] && ft_strncmp("PATH=", shell->env[i], 5) != 0)
+		new_envp = copy_env(envp, new_envp);
+		while (new_envp[i] && ft_strncmp("PATH=", new_envp[i], 5) != 0)
 		 	i++;
-		if (ft_strncmp("PATH=", shell->env[i], 5) != 0)
+		if (ft_strncmp("PATH=", new_envp[i], 5) != 0)
 		{
 		 	printf("Path doesn't exist\n\n"); // don't forget to delete
 		 	shell->table->cmd->path = NULL;
 		}
 		else
 		{
-			shell->table->cmd->path = ft_split(shell->env[i] + 5, ':');
+			shell->table->cmd->path = ft_split(new_envp[i] + 5, ':');
 		}
 	}
 	else
 	{
 		shell->env_exists = false;
+
 		shell->table->cmd->path = NULL;
 	}
-	init_missing_env(shell, envp);
+	shell->env = new_envp;
+	//init_missing_env(shell);
 }
-
-

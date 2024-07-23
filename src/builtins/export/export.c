@@ -6,31 +6,31 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:36:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/07/09 15:46:21 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:17:59 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/minishell.h"
 
-/*int	export(t_shell *shell)
+int	ft_export(t_shell *shell, char **args)
 {
 	char	**tmp;
-	char	**args;
+	//char	**args;
 	int		i;
 
-	args = shell->table->cmd->args;
-	i = 1;
-	if (!args[1] || args[1][0] == '\0')
+	//args = shell->table->cmd->args;
+	i = 0;
+	if (!args[0])
 		env(shell, args);
 	else
 	{
-		while (args[i])
+		while (args[i] != NULL)
 		{
-			if (args_check(args[i]) == 0 && var_exist(args[i]) == 0)
+			if (args_check(args[i]) == 0 && var_exist(shell, args[i]) == 0)
 			{
 				if (args[i])
 				{
-					tmp = add_var(shell->env, args[i])
+					tmp = add_var(shell->env, args[i]);
 					//free env
 					shell->env = tmp;
 				}
@@ -38,8 +38,8 @@
 			i++;
 		}
 	}
-	return (EXIT_SUCESS);
-}*/
+	return (EXIT_SUCCESS);
+}
 
 char	**add_var(char **env, char *str)
 {
